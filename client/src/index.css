@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #5d5fef;
+  --color-secondary: #f1f2f6;
+
+  --color-bg-main: #ffffff;
+  --color-bg-sidebar: #fafafa;
+  --color-bg-highlight: #b3b3fc;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+.sidebar {
+  background-color: var(--color-bg-sidebar);
+  width: 18%;
+}
+
+.brandLogo {
+  color: #24318f;
+}
+.nav-item {
+  display: flex;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #777;
+  padding: 4%;
+}
+
+.nav-item:hover {
+  background-color: var(--color-bg-highlight);
+  color: #111;
+  font-weight: bold;
+}
+
+.nav-item:hover svg {
+  background-color: #fff;
+  padding: 1%;
+  border-radius: 8px;
+  box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
+  -webkit-box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
+  -moz-box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
+}
