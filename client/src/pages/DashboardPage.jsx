@@ -1,7 +1,13 @@
-import React from "react";
+import Receivables from "../components/Receivables";
 
 const DashboardPage = () => {
-  return <div>Dashboard</div>;
+  return (
+    <section className="dashboard p-5 ps-10">
+      <h1 className="text-4xl font-bold">Your overview</h1>
+
+      <Receivables />
+    </section>
+  );
 };
 
 export default DashboardPage;

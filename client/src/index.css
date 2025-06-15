@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #5d5fef;
+  --color-primary: #24318f;
   --color-secondary: #f1f2f6;
 
   --color-bg-main: #ffffff;
@@ -21,7 +21,7 @@
 }
 
 .brandLogo {
-  color: #24318f;
+  color: var(--color-primary);
 }
 .nav-item {
   display: flex;
@@ -44,4 +44,8 @@
   box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
   -webkit-box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
   -moz-box-shadow: -1px 4px 6px 0px rgba(106, 102, 102, 0.75);
+}
+
+.dashboard h1 {
+  color: var(--color-primary);
 }
