@@ -30,7 +30,13 @@ const InvoiceStatusChart = () => {
           <Legend />
           <Bar dataKey="paid" stackId="a" fill="#05df72" name="Paid" />
           <Bar dataKey="unpaid" stackId="a" fill="#fdba74" name="Unpaid" />
-          <Bar dataKey="overdue" stackId="a" fill="#fb923c" name="Overdue" />
+          <Bar
+            dataKey="overdue"
+            stackId="a"
+            fill="#fb923c"
+            name="Overdue"
+            radius={[4, 4, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>

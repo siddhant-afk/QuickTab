@@ -1,32 +1,56 @@
+import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo.png";
 
 const Sidebar = () => {
   return (
     <nav className="sidebar flex flex-col gap-12 p-4">
-      <div className="brandLogo  flex items-center  text-2xl tracking-widest font-bold">
-        <img src={Logo} alt="" className="h-15" />
+      <div className="brandLogo  flex items-center  text-3xl tracking-widest font-bold gap-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          clasName="lucide lucide-receipt-text-icon lucide-receipt-text"
+        >
+          <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+          <path d="M14 8H8" />
+          <path d="M16 12H8" />
+          <path d="M13 16H8" />
+        </svg>
         QUICKTAB
       </div>
       <div className="links-container">
         <ul className="nav-links flex flex-col gap-5 w-full">
-          <li className="nav-item rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-gauge-icon lucide-gauge"
-            >
-              <path d="m12 14 4-4" />
-              <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-            </svg>
-            Dashboard
-          </li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            <li className="rounded-lg flex gap-3 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-gauge-icon lucide-gauge"
+              >
+                <path d="m12 14 4-4" />
+                <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+              </svg>
+              Dashboard
+            </li>
+          </NavLink>
           <li className="nav-item rounded-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"

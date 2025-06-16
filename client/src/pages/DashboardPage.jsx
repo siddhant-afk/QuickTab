@@ -5,7 +5,7 @@ import RevenueChart from "../components/RevenueChart";
 const DashboardPage = () => {
   return (
     <section className="dashboard p-5 ps-10">
-      <h1 className="text-4xl font-bold">Your overview</h1>
+      <h1 className="text-4xl font-bold text-slate-700">Your overview</h1>
 
       <Receivables />
 
