@@ -18,10 +18,16 @@ const data = [
 
 const RevenueChart = () => {
   return (
-    <div className="w-full bg-white shadow-md p-4 ">
-      <h3 className="text-lg mb-2 ps-4">Monthly Revenue</h3>
+    <div className="w-full  p-4 ">
+      <h3 className="text-lg mb-5 ps-4">Monthly Revenue</h3>
       <ResponsiveContainer width="100%" height={350}>
         <AreaChart data={data}>
+          <defs>
+            <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+            </linearGradient>
+          </defs>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
@@ -30,7 +36,7 @@ const RevenueChart = () => {
             type="monotone"
             dataKey="revenue"
             stroke="#05df72"
-            fill="#bbf7d0"
+            fill="url(#green)"
             strokeWidth={2.5}
             dot={{ r: 3 }}
             activeDot={{ r: 5 }}

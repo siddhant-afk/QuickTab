@@ -9,7 +9,7 @@ const DashboardPage = () => {
 
       <Receivables />
 
-      <div className="dashboard-charts-container flex justify-between ">
+      <div className="dashboard-charts-container flex gap-5">
         <RevenueChart />
         <InvoiceStatusChart />
       </div>
