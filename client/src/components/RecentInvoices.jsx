@@ -57,15 +57,15 @@ function getStatusClasses(status) {
 const RecentInvoices = () => {
   return (
     <div className="p-4">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Recent Invoices</h2>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="text-xl font-semibold">Recent Invoices</h2>
         <button className="text-sm text-slate-600 hover:underline">
           View All
         </button>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left">
-          <thead>
+          <thead className="bg-slate-200">
             <tr className="text-gray-600">
               <th className="px-4 py-2">Invoice ID</th>
               <th className="px-4 py-2">Customer</th>
@@ -78,7 +78,10 @@ const RecentInvoices = () => {
           </thead>
           <tbody>
             {recentInvoices.map((invoice) => (
-              <tr key={invoice.id} className=" hover:bg-gray-50">
+              <tr
+                key={invoice.id}
+                className=" hover:bg-gray-50 border-b border-slate-200"
+              >
                 <td className="px-4 py-4 font-medium">{invoice.id}</td>
                 <td className="px-4 py-4">{invoice.customer}</td>
                 <td className="px-4 py-4">{invoice.date}</td>
