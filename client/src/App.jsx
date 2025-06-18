@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage";
-import ProductsPage from "./pages/ProductsPage";
+
 import InvoicesPage from "./pages/InvoicesPage";
 import CustomersPage from "./pages/CustomersPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./layout/Layout";
+import InventoryPage from "./pages/InventoryPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
 
         <Route element={<Layout />}>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/inventory" element={<InventoryPage />} />
           <Route path="/customers" element={<CustomersPage />} />
           <Route path="/invoices" element={<InvoicesPage />} />
         </Route>
