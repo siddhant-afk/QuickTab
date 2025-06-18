@@ -33,9 +33,9 @@
 }
 
 .nav-item:hover {
-  @apply bg-orange-100 text-orange-600 rounded-lg;
+  @apply bg-slate-200 text-slate-600 rounded-lg;
 }
 
 .nav-item.active {
-  @apply bg-orange-100 text-orange-600 rounded-lg;
+  @apply bg-slate-200 text-slate-600 rounded-lg;
 }

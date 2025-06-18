@@ -21,9 +21,9 @@ const InvoiceStatusChart = () => {
   return (
     <div className="w-full p-4">
       <h3 className="text-lg ps-11 mb-5">Invoice Status Over Time</h3>
-      <ResponsiveContainer width="100%" height={375}>
+      <ResponsiveContainer width="100%" height={275}>
         <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <CartesianGrid vertical={false} />
           <XAxis dataKey="month" />
           <YAxis allowDecimals={false} />
           <Tooltip />

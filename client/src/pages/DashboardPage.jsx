@@ -1,5 +1,6 @@
 import InvoiceStatusChart from "../components/InvoiceStatusChart";
 import Receivables from "../components/Receivables";
+import RecentInvoices from "../components/RecentInvoices";
 import RevenueChart from "../components/RevenueChart";
 
 const DashboardPage = () => {
@@ -9,9 +10,13 @@ const DashboardPage = () => {
 
       <Receivables />
 
-      <div className="dashboard-charts-container flex gap-5">
+      <div className="dashboard-charts-container flex gap-5 mt-10 ">
         <RevenueChart />
         <InvoiceStatusChart />
+      </div>
+
+      <div className="recent-invoices">
+        <RecentInvoices />
       </div>
     </section>
   );
