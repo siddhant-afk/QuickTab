@@ -15,7 +15,7 @@ const DashboardPage = () => {
         <InvoiceStatusChart />
       </div>
 
-      <div className="recent-invoices">
+      <div className="recent-invoices mt-6">
         <RecentInvoices />
       </div>
     </section>

@@ -28,7 +28,7 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
   }
 
   function handleSubmit() {
-    if (!formData.name || formData.price) {
+    if (!formData.name || !formData.price) {
       alert("Name and Price are required");
       return;
     }

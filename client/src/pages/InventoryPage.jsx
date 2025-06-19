@@ -59,11 +59,11 @@ const InventoryPage = () => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 pt-15">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Inventory</h2>
+        <h2 className="text-4xl font-semibold text-slate-700"> 📦 Inventory</h2>
         <button
-          className="bg-slate-600 text-white px-4 py-2 rounded hover:bg-slate-700 text-sm"
+          className="bg-green-100 text-green-600 px-4 py-2 rounded hover:bg-green-200 text-sm"
           onClick={handleAddClick}
         >
           + Add Item
