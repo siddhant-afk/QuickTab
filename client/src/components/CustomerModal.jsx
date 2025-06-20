@@ -42,7 +42,7 @@ const CustomerModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
           {initialData ? "Edit Customer" : "Add New Customer"}
         </h3>
 
-        <div className="space-y-3">
+        <div className="space-y-5">
           <input
             name="name"
             value={formData.name}

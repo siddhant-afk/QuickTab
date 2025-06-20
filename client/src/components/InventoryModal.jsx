@@ -40,12 +40,12 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40  flex justify-center items-center z-50">
-      <div className="bg-white w-full max-w-md rounded-sm shadow-lg p-6">
+      <div className="bg-white w-200  rounded-sm shadow-lg p-6">
         <h3 className="text-lg font-semibold mb-4">
           {initialData ? "Edit Item" : "Add New Item"}
         </h3>
 
-        <div className="space-y-3">
+        <div className="space-y-5">
           <input
             type="text"
             name="name"
