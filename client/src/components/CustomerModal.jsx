@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
+
+const CustomerModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
   const [formData, setFormData] = useState({
     name: "",
-    description: "",
-    price: "",
-    category: "",
-    sku: "",
+    email: "",
+    phone: "",
   });
 
   useEffect(() => {
@@ -14,10 +13,8 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
     } else {
       setFormData({
         name: "",
-        description: "",
-        price: "",
-        category: "",
-        sku: "",
+        email: "",
+        phone: "",
       });
     }
   }, [initialData]);
@@ -28,8 +25,8 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
   }
 
   function handleSubmit() {
-    if (!formData.name || !formData.price) {
-      alert("Name and Price are required");
+    if (!formData.name) {
+      alert("Customer name is required");
       return;
     }
     onSubmit(formData);
@@ -39,54 +36,35 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/40  flex justify-center items-center z-50">
-      <div className="bg-white w-full max-w-md rounded-sm shadow-lg p-6">
+    <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
+      <div className="bg-white  max-w-m shadow-lg p-6">
         <h3 className="text-lg font-semibold mb-4">
-          {initialData ? "Edit Item" : "Add New Item"}
+          {initialData ? "Edit Customer" : "Add New Customer"}
         </h3>
 
         <div className="space-y-3">
           <input
-            type="text"
             name="name"
-            placeholder="Item Name *"
             value={formData.name}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
-          />
-          <textarea
-            name="description"
-            placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
+            placeholder="Full Name"
             className="w-full border p-2 rounded"
           />
           <input
-            type="number"
-            name="price"
-            placeholder="Price *"
-            value={formData.price}
+            name="email"
+            value={formData.email}
             onChange={handleChange}
+            placeholder="Email"
             className="w-full border p-2 rounded"
           />
           <input
-            type="text"
-            name="category"
-            placeholder="Category"
-            value={formData.category}
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
-          />
-          <input
-            type="text"
-            name="sku"
-            placeholder="SKU (optional)"
-            value={formData.sku}
-            onChange={handleChange}
+            placeholder="Phone"
             className="w-full border p-2 rounded"
           />
         </div>
-
         <div className="mt-6 flex justify-end gap-3">
           <button
             onClick={onClose}
@@ -106,4 +84,4 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
   );
 };
 
-export default InventoryModal;
+export default CustomerModal;
