@@ -1,4 +1,11 @@
-const InvoicePreview = () => {
+const InvoicePreview = ({ data }) => {
+  const subtotal = data.items.reduce(
+    (sum, item) => sum + item.qty * item.price,
+    0
+  );
+
+  const discount = 100;
+  const total = subtotal - discount;
   return (
     <>
       {/* Invoice Header */}
@@ -6,8 +13,8 @@ const InvoicePreview = () => {
       <div className="mb-6 invoice-heading">
         <h1 className="text-xl font-semibold text-slate-700">Invoice</h1>
         <p>Invoice ID: INV-005</p>
-        <p>Issue Date : 2025-06-21</p>
-        <p>Due Date : 2025-06-30</p>
+        <p>Issue Date : {data.issueDate}</p>
+        <p>Due Date : {data.dueDate}</p>
       </div>
 
       {/* Customer Info */}
@@ -15,7 +22,7 @@ const InvoicePreview = () => {
         <h2 className="text-sm font-semibold text-slate-600 mb-1 ">
           Billed To:
         </h2>
-        <p className="text-sm text-slate-700">Siddhant Dudhane</p>
+        <p className="text-sm text-slate-700">{data.customer}</p>
       </div>
 
       {/* Line Items Table */}
@@ -30,19 +37,14 @@ const InvoicePreview = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-t border-slate-200">
-              <td>Consultation</td>
-              <td className="text-right">1</td>
-              <td className="text-right">₹1500</td>
-              <td className="text-right">₹1500</td>
-            </tr>
-
-            <tr className="border-t border-slate-200">
-              <td>Vitamin C</td>
-              <td className="text-right">2</td>
-              <td className="text-right">₹250</td>
-              <td className="text-right">₹500</td>
-            </tr>
+            {data?.items?.map((item, index) => (
+              <tr key={index} className="border-t border-slate-200">
+                <td>{item.name}</td>
+                <td className="text-right">{item.qty}</td>
+                <td className="text-right">₹{item.price}</td>
+                <td className="text-right">₹{item.qty * item.price}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -51,24 +53,22 @@ const InvoicePreview = () => {
       <div className="mb-6 text-sm text-slate-700 space-y-1">
         <div className="flex justify-between">
           <span>Subtotal</span>
-          <span>₹2000</span>
+          <span>₹{subtotal}</span>
         </div>
         <div className="flex justify-between">
           <span>Discount</span>
-          <span>₹100</span>
+          <span>₹{discount}</span>
         </div>
         <div className="flex justify-between font-semibold">
           <span>Total</span>
-          <span>₹1900</span>
+          <span>₹{total}</span>
         </div>
       </div>
 
       {/* Notes Section */}
       <div>
-        <h2 className="text-sm font-semibold text-slate-600 mb-1">Notes</h2>
-        <p className="text-sm text-slate-700">
-          Thank you for your business. Payment is due within 7 days.
-        </p>
+        <h2 className="text-sm font-semibold text-slate-600 mb-1">Notes:</h2>
+        <p className="text-sm text-slate-700">{data.notes}</p>
       </div>
     </>
   );

@@ -21,7 +21,7 @@
 }
 
 .brandLogo {
-  @apply text-slate-700 mt-5;
+  @apply text-orange-500 mt-5;
 }
 
 .nav-item {
@@ -33,11 +33,11 @@
 }
 
 .nav-item:hover {
-  @apply bg-slate-200 text-slate-600 rounded-lg;
+  @apply bg-purple-100 text-purple-600 rounded-lg;
 }
 
 .nav-item.active {
-  @apply bg-slate-200 text-slate-600 rounded-lg;
+  @apply bg-purple-100 text-purple-600 rounded-lg;
 }
 
 .invoice-heading p {
