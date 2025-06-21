@@ -1,8 +1,9 @@
 import React from "react";
+import InvoicePreview from "../components/InvoicePreview";
 
 const InvoiceBuilder = () => {
   return (
-    <div className="p-4 flex flex-col lg:flex-row gap-6">
+    <div className="p-4 flex flex-col lg:flex-row gap-6 h-full">
       {/* Input Form */}
       <div className="w-full lg:w-1/2 space-y-4">
         {/* Customer Details*/}
@@ -82,7 +83,10 @@ const InvoiceBuilder = () => {
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 bg-white shadow rounded p-4 border border-slate-200   "></div>
+      {/* Invoice Preview */}
+      <div className="w-full lg:w-1/2 bg-white shadow rounded p-6 border border-slate-200 h-full overflow-y-auto">
+        <InvoicePreview />
+      </div>
     </div>
   );
 };

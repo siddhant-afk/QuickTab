@@ -39,3 +39,12 @@
 .nav-item.active {
   @apply bg-slate-200 text-slate-600 rounded-lg;
 }
+
+.invoice-heading p {
+  @apply text-sm text-slate-500;
+}
+
+.invoice-table th,
+.invoice-table td {
+  @apply px-4 py-2;
+}
