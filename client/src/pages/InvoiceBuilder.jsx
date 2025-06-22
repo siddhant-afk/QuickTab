@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+
 import InvoicePreview from "../components/InvoicePreview";
 
 const InvoiceBuilder = () => {
@@ -52,6 +53,15 @@ const InvoiceBuilder = () => {
     pdf.save("invoice.pdf");
   }
 
+  function handlePrint() {
+    const printContent = previewRef.current.innerHTML;
+    const originalContent = document.body.innerHTML;
+
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = originalContent;
+    window.location.reload();
+  }
   function handleSaveInvoice() {}
 
   return (
@@ -214,14 +224,31 @@ const InvoiceBuilder = () => {
       </div>
 
       {/* Invoice Preview */}
-      <div className="w-full lg:w-1/2">
-        <button
-          onClick={handleDownloadPDF}
-          className="bg-slate-900 text-white rounded px-3 py-1 hover:bg-slate-800 text-sm mb-2 cursor-pointer"
-        >
-          🧾 Save PDF
-        </button>
-        <div className="h-full">
+      <div className="w-full lg:w-1/2 bg-neutral-100 p-6 overflow-y-auto custom-scrollbar">
+        <div className="flex justify-between mb-2">
+          <h4 className="text-slte-700">Preview</h4>
+          <div className="flex gap-2">
+            <button
+              onClick={handleDownloadPDF}
+              className="bg-slate-900 text-white rounded px-3 py-1 hover:bg-slate-800 text-sm mb-2 cursor-pointer"
+            >
+              💾 Save
+            </button>
+            <button
+              onClick={handlePrint}
+              className="bg-slate-900 text-white rounded px-3 py-1 hover:bg-slate-800 text-sm mb-2 cursor-pointer"
+            >
+              🖨️ Print
+            </button>
+            <button
+              onClick={handleDownloadPDF}
+              className="bg-slate-900 text-white rounded px-3 py-1 hover:bg-slate-800 text-sm mb-2 cursor-pointer"
+            >
+              Email Invoice
+            </button>
+          </div>
+        </div>
+        <div className="h-full shadow">
           <InvoicePreview ref={previewRef} data={invoiceData} />
         </div>
       </div>
