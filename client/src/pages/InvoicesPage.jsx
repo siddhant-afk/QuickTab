@@ -42,7 +42,7 @@ const InvoicesPage = () => {
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-4xl text-slate-700 font-semibold">🧾 Invoices</h2>
         <button
-          className="bg-green-100 text-green-600 px-4 py-2 rounded hover:bg-green-200 text-sm"
+          className="bg-slate-900 text-white px-4 py-2 rounded hover:bg-slate-800 text-sm"
           onClick={() => navigate("/invoices/new")}
         >
           + New Invoice

@@ -16,7 +16,7 @@
   font-family: "Inter", sans-serif;
 }
 .sidebar {
-  background-color: var(--color-bg-sidebar);
+  @apply bg-gray-50;
   width: 18%;
 }
 
@@ -33,11 +33,11 @@
 }
 
 .nav-item:hover {
-  @apply bg-purple-100 text-purple-600 rounded-lg;
+  @apply bg-slate-900 text-white rounded-lg;
 }
 
 .nav-item.active {
-  @apply bg-purple-100 text-purple-600 rounded-lg;
+  @apply bg-slate-900 text-white rounded-lg;
 }
 
 .invoice-pdf {
@@ -84,12 +84,11 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-neutral-200;
-  border-radius: 8px;
+  display: none;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {

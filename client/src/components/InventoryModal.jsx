@@ -96,7 +96,7 @@ const InventoryModal = ({ isOpen, onClose, onSubmit, initialData = null }) => {
           </button>
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 rounded bg-green-100 hover:bg-green-200 text-green-600 text-sm"
+            className="px-4 py-2 rounded bg-slate-900 hover:bg-slate-800 text-white text-sm"
           >
             {initialData ? "Update" : "Add"}
           </button>

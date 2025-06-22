@@ -63,7 +63,7 @@ const CustomersPage = () => {
         <h1 className="text-4xl text-slate-700 font-semibold">🧑‍💼 Customers</h1>
         <button
           onClick={handleAddClick}
-          className="bg-green-100 text-green-600 hover:bg-green-200 px-4 py-2 text-sm rounded-sm"
+          className="bg-slate-900 text-white hover:bg-slate-800 px-4 py-2 text-sm rounded-sm"
         >
           {" "}
           + Add Customer
