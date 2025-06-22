@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import InvoicePreview from "../components/InvoicePreview";
 
 const InvoiceBuilder = () => {
+  const previewRef = useRef();
+
   const [invoiceData, setInvoiceData] = useState({
     customer: "",
     issueDate: "",
@@ -29,6 +33,23 @@ const InvoiceBuilder = () => {
       qty: 1,
       price: "",
     });
+  }
+
+  async function handleDownloadPDF() {
+    const input = previewRef.current;
+
+    if (!input) return;
+
+    const canvas = await html2canvas(input);
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("invoice.pdf");
   }
 
   function handleSaveInvoice() {}
@@ -193,8 +214,16 @@ const InvoiceBuilder = () => {
       </div>
 
       {/* Invoice Preview */}
-      <div className="w-full lg:w-1/2 bg-white shadow rounded p-6 border border-slate-200 h-full overflow-y-auto">
-        <InvoicePreview data={invoiceData} />
+      <div className="w-full lg:w-1/2">
+        <button
+          onClick={handleDownloadPDF}
+          className="bg-slate-900 text-white rounded px-3 py-1 hover:bg-slate-800 text-sm mb-2 cursor-pointer"
+        >
+          🧾 Save PDF
+        </button>
+        <div className="h-full">
+          <InvoicePreview ref={previewRef} data={invoiceData} />
+        </div>
       </div>
     </div>
   );

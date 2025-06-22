@@ -40,11 +40,45 @@
   @apply bg-purple-100 text-purple-600 rounded-lg;
 }
 
-.invoice-heading p {
-  @apply text-sm text-slate-500;
+.invoice-pdf {
+  background-color: #ffffff;
+  color: #1e293b; /* slate-700 */
+  border: 1px solid #e2e8f0; /* slate-200 */
+  font-family: "Inter", sans-serif;
 }
 
-.invoice-table th,
-.invoice-table td {
-  @apply px-4 py-2;
+.invoice-pdf h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.invoice-pdf table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  border: 1px solid #e2e8f0;
+}
+
+.invoice-pdf th {
+  background-color: #f1f5f9; /* slate-100 */
+  color: #475569; /* slate-600 */
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.invoice-pdf td {
+  padding: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.invoice-pdf .summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.invoice-pdf .summary-row strong {
+  font-weight: 600;
 }
