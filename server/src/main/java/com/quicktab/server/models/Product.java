@@ -2,6 +2,8 @@ package com.quicktab.server.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -15,16 +17,29 @@ public class Product {
     private String SKU;
     private String category;
 
-
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Product() {
     }
 
-    public Product(Long id, String name, Double price, String description) {
+    public Product(Long id, String name, Double price, String description, String SKU, String category, User user) {
         Id = id;
         this.name = name;
         this.price = price;
         this.description = description;
+        this.SKU = SKU;
+        this.category = category;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {
