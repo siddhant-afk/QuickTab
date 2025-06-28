@@ -2,9 +2,7 @@ package com.quicktab.server.controllers;
 
 import com.quicktab.server.models.Product;
 import com.quicktab.server.services.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +23,27 @@ public class ProductController {
 
         return productService.getAllProducts();
     }
+
+    @GetMapping("/{id}")
+    public Product getProduct(@PathVariable Long id){
+
+        return productService.getProductById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+
+    }
+
+    @PostMapping
+    public void createProduct(@RequestBody Product product){
+         productService.addProduct(product);
+    }
+
+    @PutMapping("/{id}")
+    public void updateProduct(@PathVariable Long id, @RequestBody Product product){
+         productService.updateProduct(id,product);
+    }
+
+    @DeleteMapping("/{id}")
+    public  void deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+    }
+
 }
