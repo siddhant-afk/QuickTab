@@ -37,7 +37,7 @@ public class ProductService {
 productRepository.findById(id).map(product -> {
     product.setName((updatedProduct.getName()));
     product.setPrice((updatedProduct.getPrice()));
-    return productRepository.save((product));
+    return productRepository.save(product);
 }).orElseThrow(() -> new RuntimeException("Product Not Found"));
     }
 
