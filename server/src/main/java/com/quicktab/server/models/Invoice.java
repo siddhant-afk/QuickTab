@@ -1,10 +1,13 @@
 package com.quicktab.server.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +25,8 @@ public class Invoice {
 
 
     @OneToMany(mappedBy = "invoice",orphanRemoval = true,cascade = CascadeType.ALL)
-    private List<InvoiceItem> items;
+    @JsonManagedReference
+    private List<InvoiceItem> items = new ArrayList<>();;
 
 
     private String Notes;

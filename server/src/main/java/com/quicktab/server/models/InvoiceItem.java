@@ -1,5 +1,6 @@
 package com.quicktab.server.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ private double price;
 
 @ManyToOne
 @JoinColumn(name = "invoice_id", nullable = false)
+@JsonBackReference
 private Invoice invoice;
 
     public InvoiceItem() {
