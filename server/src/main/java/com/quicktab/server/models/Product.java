@@ -1,5 +1,7 @@
 package com.quicktab.server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,10 +19,12 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     public Product() {
     }
+
 
     public Product(Long id, String name, Double price, String description, String SKU, String category, User user) {
         Id = id;
@@ -30,6 +34,11 @@ public class Product {
         this.SKU = SKU;
         this.category = category;
         this.user = user;
+    }
+
+    @JsonProperty("userId")
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
     }
 
     public User getUser() {

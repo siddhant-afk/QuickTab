@@ -2,7 +2,9 @@ package com.quicktab.server.services;
 
 
 import com.quicktab.server.models.Product;
+import com.quicktab.server.models.User;
 import com.quicktab.server.repositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -14,10 +16,25 @@ public class ProductService {
 
 
     private final ProductRepository productRepository;
+    private final QuicktabUserDetailsService userDetailsService;
 
-    public ProductService(ProductRepository productRepository) {
+
+    @Autowired
+    public ProductService(ProductRepository productRepository,
+                          QuicktabUserDetailsService userDetailsService) {
         this.productRepository = productRepository;
+        this.userDetailsService = userDetailsService;
     }
+
+
+
+    public List<Product> getAllProductsForCurrentUser() {
+        User currentUser = userDetailsService.getCurrentUser();
+        return productRepository.findByUser(currentUser);
+    }
+
+
+
 
     public List<Product> getAllProducts() {
 

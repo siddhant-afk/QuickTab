@@ -19,10 +19,15 @@ public class ProductController {
 
 
     @GetMapping
-    public List<Product> getAllProducts(){
-
-        return productService.getAllProducts();
+    public List<Product> getProductsForCurrentUser() {
+        return productService.getAllProductsForCurrentUser();
     }
+
+//    @GetMapping
+//    public List<Product> getAllProducts(){
+//
+//        return productService.getAllProducts();
+//    }
 
     @GetMapping("/{id}")
     public Product getProduct(@PathVariable Long id){

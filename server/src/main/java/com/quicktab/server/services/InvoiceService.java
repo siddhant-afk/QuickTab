@@ -3,7 +3,9 @@ package com.quicktab.server.services;
 
 import com.quicktab.server.models.Invoice;
 import com.quicktab.server.models.InvoiceItem;
+import com.quicktab.server.models.User;
 import com.quicktab.server.repositories.InvoiceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,13 +15,19 @@ import java.util.Optional;
 public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
+    private final QuicktabUserDetailsService userDetailsService;
 
-    public InvoiceService(InvoiceRepository invoiceRepository) {
+    @Autowired
+    public InvoiceService(InvoiceRepository invoiceRepository, QuicktabUserDetailsService userDetailsService) {
         this.invoiceRepository = invoiceRepository;
+        this.userDetailsService = userDetailsService;
     }
 
-    public List<Invoice> getAllInvoices() {
-        return invoiceRepository.findAll();
+    public List<Invoice> getAllInvoicesByUser()
+    {
+        User user = userDetailsService.getCurrentUser();
+
+         return invoiceRepository.findByUser(user);
     }
 
     public Optional<Invoice> getInvoiceById(Long id) {

@@ -20,7 +20,7 @@ public class InvoiceController {
 
     @GetMapping
     public List<Invoice> getAllInvoices() {
-        return invoiceService.getAllInvoices();
+        return invoiceService.getAllInvoicesByUser();
     }
 
     @GetMapping("/{id}")

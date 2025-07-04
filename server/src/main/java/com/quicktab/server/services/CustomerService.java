@@ -1,7 +1,9 @@
 package com.quicktab.server.services;
 
 import com.quicktab.server.models.Customer;
+import com.quicktab.server.models.User;
 import com.quicktab.server.repositories.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,11 +14,19 @@ import java.util.Optional;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final QuicktabUserDetailsService userDetailsService;
 
-    public CustomerService(CustomerRepository customerRepository) {
+
+    @Autowired
+    public CustomerService(CustomerRepository customerRepository, QuicktabUserDetailsService userDetailsService) {
         this.customerRepository = customerRepository;
+        this.userDetailsService = userDetailsService;
     }
 
+    public List<Customer> getAllCustomersForCurrentUser(){
+        User user  = userDetailsService.getCurrentUser();
+        return customerRepository.findByUser(user);
+    }
 
     public List<Customer> getAllCustomers() {
 

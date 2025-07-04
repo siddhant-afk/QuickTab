@@ -2,7 +2,9 @@ package com.quicktab.server.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 
@@ -35,6 +37,7 @@ public class Invoice {
 
     @ManyToOne
     @JoinColumn(name="user_id",nullable=false)
+    @JsonIgnore
     private User user;
 
 
@@ -50,6 +53,11 @@ public class Invoice {
         Notes = notes;
         this.totalAmount = totalAmount;
         this.user = user;
+    }
+
+    @JsonProperty("userId")
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
     }
 
     public Long getId() {
